@@ -1,6 +1,9 @@
+using BHHC.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -10,19 +13,31 @@ namespace BHHC
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(_configuration.GetConnectionString("AppConnectionString"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger, 
+            AppDbContext dbContext)
         {
-            logger.LogInformation("Configuring request pipeline: {timestamp}", DateTimeOffset.Now);
+            logger.LogInformation("Configuring request pipeline.");
 
-            // TODO: set up EF
-            // TODO: run database migrations
+            // DEVNOTE: run database migrations to ensure up-to-date schema
+            dbContext.Database.Migrate();
 
             if (env.IsDevelopment())
             {
@@ -40,7 +55,7 @@ namespace BHHC
             });
 
             logger.LogInformation("Pipeline configuration complete.");
-            logger.LogInformation("Starting web application: {timestamp}", DateTimeOffset.Now);
+            logger.LogInformation("Starting web application.");
         }
     }
 }

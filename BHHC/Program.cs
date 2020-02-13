@@ -25,6 +25,8 @@ namespace BHHC
                 })
                 .UseSerilog((hostContext, loggerConfig) =>
                 {
+                    // Configure Serilog as a logging framework and read it's config from 
+                    // the appsettings.json "Serilog" section
                     loggerConfig.ReadFrom.Configuration(hostContext.Configuration);
                 });
     }
