@@ -1,6 +1,7 @@
 ﻿using BHHC.Database.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace BHHC.Database
 {
@@ -16,6 +17,8 @@ namespace BHHC.Database
         {
             this.ConfigureCandidates(modelBuilder.Entity<Candidate>());
             this.ConfigureFantasticReasons(modelBuilder.Entity<FantasticReason>());
+
+            //this.SeedData(modelBuilder);
         }
 
         private void ConfigureCandidates(EntityTypeBuilder<Candidate> entity)
@@ -36,9 +39,8 @@ namespace BHHC.Database
                 .IsRequired();
 
             // 1-to-many relationship
-            entity.HasMany<FantasticReason>()
+            entity.HasMany(c => c.FantasticReasons)
                 .WithOne(fr => fr.Candidate)
-                .OnDelete(DeleteBehavior.Cascade)
                 .HasForeignKey(fr => fr.CandidateId);
         }
 
@@ -57,12 +59,49 @@ namespace BHHC.Database
                 .HasMaxLength(255);
 
             // Unique composite key (don't allow the a duplicate display order value for a single candidate)
-            entity.HasIndex(fr => new
+            entity
+                .HasIndex(fr => new
                 {
                     fr.CandidateId,
                     fr.DisplayOrder
                 })
                 .IsUnique();
+        }
+
+        private void SeedData(ModelBuilder modelBuilder)
+        {
+            const int djCandidateId = 1;
+
+            modelBuilder.Entity<Candidate>().HasData(
+                new Candidate()
+                {
+                    Id = djCandidateId,
+                    FirstName = "DJ",
+                    LastName = "Hubka"
+                });
+
+            modelBuilder.Entity<FantasticReason>().HasData(
+                new FantasticReason()
+                {
+                    Id = 1,
+                    CandidateId = djCandidateId,
+                    DisplayOrder = 1,
+                    Reason = "Reason 1"
+                },
+                new FantasticReason()
+                {
+                    Id = 2,
+                    CandidateId = djCandidateId,
+                    DisplayOrder = 2,
+                    Reason = "Reason 2"
+                },
+                new FantasticReason()
+                {
+                    Id = 3,
+                    CandidateId = djCandidateId,
+                    DisplayOrder = 3,
+                    Reason = "Reason 3"
+                });
         }
     }
 }

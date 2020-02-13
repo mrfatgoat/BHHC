@@ -28,8 +28,7 @@ namespace BHHC.Database.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DisplayOrder = table.Column<int>(nullable: false, defaultValue: 1),
                     Reason = table.Column<string>(maxLength: 255, nullable: false),
-                    CandidateId = table.Column<int>(nullable: false),
-                    CandidateId1 = table.Column<int>(nullable: true)
+                    CandidateId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,18 +39,7 @@ namespace BHHC.Database.Migrations
                         principalTable: "Candidates",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_FantasticReasons_Candidates_CandidateId1",
-                        column: x => x.CandidateId1,
-                        principalTable: "Candidates",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_FantasticReasons_CandidateId1",
-                table: "FantasticReasons",
-                column: "CandidateId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FantasticReasons_CandidateId_DisplayOrder",
