@@ -34,6 +34,9 @@ namespace BHHC
                     optionsAction => optionsAction.EnableRetryOnFailure(5));
 
             }, ServiceLifetime.Scoped);
+
+            services.AddRazorPages();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,10 +58,7 @@ namespace BHHC
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();
             });
 
             logger.LogInformation("Pipeline configuration complete.");
