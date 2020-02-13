@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace BHHC
 {
@@ -19,8 +17,13 @@ namespace BHHC
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
+            logger.LogInformation("Configuring request pipeline: {timestamp}", DateTimeOffset.Now);
+
+            // TODO: set up EF
+            // TODO: run database migrations
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -35,6 +38,9 @@ namespace BHHC
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
+
+            logger.LogInformation("Pipeline configuration complete.");
+            logger.LogInformation("Starting web application: {timestamp}", DateTimeOffset.Now);
         }
     }
 }
