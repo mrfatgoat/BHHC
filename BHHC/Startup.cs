@@ -24,19 +24,26 @@ namespace BHHC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add a scoped database context for persistence
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(_configuration.GetConnectionString("AppConnectionString"));
-            });
+                options.UseSqlServer(
+                    // Read connection string from appsettings.json
+                    _configuration.GetConnectionString("AppConnectionString"),
+                    // Retry on failed connection
+                    optionsAction => optionsAction.EnableRetryOnFailure(5));
+
+            }, ServiceLifetime.Scoped);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger, 
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger,
             AppDbContext dbContext)
         {
             logger.LogInformation("Configuring request pipeline.");
 
             // DEVNOTE: run database migrations to ensure up-to-date schema
+            logger.LogInformation("Running database migrations.");
             dbContext.Database.Migrate();
 
             if (env.IsDevelopment())
@@ -55,7 +62,6 @@ namespace BHHC
             });
 
             logger.LogInformation("Pipeline configuration complete.");
-            logger.LogInformation("Starting web application.");
         }
     }
 }
