@@ -18,7 +18,7 @@ namespace BHHC.Database
             this.ConfigureCandidates(modelBuilder.Entity<Candidate>());
             this.ConfigureFantasticReasons(modelBuilder.Entity<FantasticReason>());
 
-            //this.SeedData(modelBuilder);
+            this.SeedData(modelBuilder);
         }
 
         private void ConfigureCandidates(EntityTypeBuilder<Candidate> entity)
