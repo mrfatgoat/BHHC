@@ -1,13 +1,11 @@
 using BHHC.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System;
 
 namespace BHHC
 {
@@ -20,8 +18,6 @@ namespace BHHC
             _configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             // Add a scoped database context for persistence
@@ -35,17 +31,19 @@ namespace BHHC
 
             }, ServiceLifetime.Scoped);
 
-            services.AddRazorPages();
-            services.AddControllers();
+            // Add support for controllers with views. 
+            // This includes services required for rendering razor pages.
+            services
+                .AddControllersWithViews()
+                .AddRazorRuntimeCompilation();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger,
             AppDbContext dbContext)
         {
             logger.LogInformation("Configuring request pipeline.");
 
-            // DEVNOTE: run database migrations to ensure up-to-date schema
+            // Run database migrations to ensure up-to-date schema.
             logger.LogInformation("Running database migrations.");
             dbContext.Database.Migrate();
 
@@ -54,8 +52,10 @@ namespace BHHC
                 app.UseDeveloperExceptionPage();
             }
 
+            // Enable routing and route parameter resolution.
             app.UseRouting();
 
+            // Enable endpoint routing (map routes to controllers)
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();

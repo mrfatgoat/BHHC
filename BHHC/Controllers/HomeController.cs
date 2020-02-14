@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BHHC.Views.Home.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BHHC.Controllers
@@ -10,7 +11,13 @@ namespace BHHC.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var vm = new IndexViewModel()
+            {
+                HomeViewProperty = "Home property value",
+                PageTitle = "DJ Hubka's Simple Sample - SPA"
+            };
+
+            return this.View(vm);
         }
     }
 }

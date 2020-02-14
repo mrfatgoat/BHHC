@@ -11,23 +11,15 @@ namespace BHHC.Controllers
     [Route("api/candidates")]
     public class CandidatesController
     {
-        private readonly AppDbContext _db;
-
-        public CandidatesController(AppDbContext db)
+        public CandidatesController()
         {
-            _db = db;
+
         }
 
         [HttpGet("")]
         public JsonResult GetCandidates()
         {
-            var candidates = _db.Candidates.Select(c => new
-            {
-                Id = c.Id,
-                Name = $"{c.FirstName} {c.LastName}"
-            });
-
-            return new JsonResult(candidates) { StatusCode = 200 };
+            throw new NotImplementedException();
         }
     }
 }
