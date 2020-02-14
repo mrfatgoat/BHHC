@@ -7,7 +7,6 @@ namespace BHHC.Controllers
 {
     [ApiController]
     [Route("api")]
-
     public class ReasonsController
     {
         private readonly IFantasticReasonService _reasonService;
