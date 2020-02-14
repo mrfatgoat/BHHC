@@ -1,10 +1,18 @@
-﻿export class CandidatesListController implements ng.IController {
+﻿import "angular";
+import { ICandidateService } from "./candidates.service";
+import { ICandidateDto } from "./CandidateDto";
 
-    constructor() {
+export class CandidatesListController implements ng.IController {
 
+    candidates: ICandidateDto[];
+
+    constructor(private candidateService: ICandidateService) {
+        this.candidates = [];
     }
 
     $onInit() {
-        alert("Candidates controller");
+        // Get get the candidates
+        this.candidateService.getCandidates()
+            .then(c => this.candidates = c);
     }
 }

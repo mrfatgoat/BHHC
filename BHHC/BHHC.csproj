@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -14,6 +14,10 @@
   <ItemGroup>
     <Compile Remove="Database\Migrations\20200213062052_AddCandidatesAndFantasticReasons.cs" />
     <Compile Remove="Database\Migrations\20200213062052_AddCandidatesAndFantasticReasons.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp" />
   </ItemGroup>
 
   <ItemGroup>
