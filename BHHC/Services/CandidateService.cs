@@ -26,6 +26,11 @@ namespace BHHC.Services
             return candidates;
         }
 
+        /// <summary>
+        /// Maps a database entity to a DTO
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
         public CandidateDto CreateDto(Candidate c)
         {
             return new CandidateDto()

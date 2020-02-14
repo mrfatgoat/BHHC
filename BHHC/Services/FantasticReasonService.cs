@@ -46,7 +46,7 @@ namespace BHHC.Services
         }
 
         /// <summary>
-        /// Maps a databsae entity to a DTO
+        /// Maps a database entity to a DTO
         /// </summary>
         /// <param name="fr"></param>
         /// <returns></returns>
