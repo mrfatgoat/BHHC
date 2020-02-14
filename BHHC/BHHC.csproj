@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app.routing.ts" />
+    <None Remove="ClientApp\app.templates.ts" />
     <None Remove="ClientApp\app.ts" />
     <None Remove="ClientApp\candidates\candidates.list.controller.ts" />
   </ItemGroup>
@@ -38,12 +39,12 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app.routing.ts" />
+    <TypeScriptCompile Include="ClientApp\app.templates.ts" />
     <TypeScriptCompile Include="ClientApp\app.ts" />
     <TypeScriptCompile Include="ClientApp\candidates\candidates.list.controller.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\reasons\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

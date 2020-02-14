@@ -4,7 +4,7 @@ let tsify = require("tsify");
 let source = require("vinyl-source-stream");
 let buffer = require("vinyl-buffer");
 let sourcemaps = require("gulp-sourcemaps");
-
+let ngify = require("ngify");
 
 
 gulp.task("default", function (done) {
@@ -12,7 +12,9 @@ gulp.task("default", function (done) {
     done();
 });
 
-gulp.task("compile-ts", function (done) {
+
+gulp.task("compile-ts", function () {
+    // Use browserify to compile and bundle all of our front-end assets into a single file
     let bundler = browserify({
         basedir: ".",
         debug: true,
@@ -22,7 +24,13 @@ gulp.task("compile-ts", function (done) {
         cache: {},
         packageCache: {}
     })
-        .plugin(tsify);
+        // Compiles typescript
+        .plugin(tsify)
+        // Creates an angular module which caches templates
+        .transform(ngify, {
+            moduleName: "app.templates",
+            htmlPath: "ClientApp/"
+        });
 
     let stream = bundler.bundle()
         .pipe(source("app.js"))
