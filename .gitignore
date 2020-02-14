@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Exclude the contents of the dist folder (it contains compiled code)
+**/wwwroot/dist

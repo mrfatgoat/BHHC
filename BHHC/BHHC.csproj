@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app.routing.ts" />
+    <None Remove="ClientApp\app.ts" />
+    <None Remove="ClientApp\candidates\candidates.list.controller.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
@@ -31,7 +37,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\" />
+    <TypeScriptCompile Include="ClientApp\app.routing.ts" />
+    <TypeScriptCompile Include="ClientApp\app.ts" />
+    <TypeScriptCompile Include="ClientApp\candidates\candidates.list.controller.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\reasons\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

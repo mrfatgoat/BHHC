@@ -10,10 +10,19 @@
   "author": "DJ Hubka",
   "license": "MIT",
   "dependencies": {
-    "typescript": "^3.7.5",
+    "jquery": "3.4.1",
     "angular": "1.7.9"
   },
   "devDependencies": {
-    "gulp": "4.0.2"
+    "@types/angular": "1.6.57",
+    "@types/angular-ui-router": "1.1.40",
+    "gulp": "4.0.2",
+    "typescript": "^3.7.5",
+    "@uirouter/angularjs": "1.0.25",
+    "browserify": "16.5.0",
+    "tsify": "4.0.1",
+    "vinyl-source-stream": "2.0.0",
+    "vinyl-buffer": "1.0.1",
+    "gulp-sourcemaps": "2.6.5"
   }
 }

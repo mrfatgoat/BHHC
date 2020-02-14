@@ -52,6 +52,9 @@ namespace BHHC
                 app.UseDeveloperExceptionPage();
             }
 
+            // Enable delivery of static assets (js, images, stylesheets) from the wwwroot directory
+            app.UseStaticFiles();
+
             // Enable routing and route parameter resolution.
             app.UseRouting();
 
