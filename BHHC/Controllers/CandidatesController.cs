@@ -1,9 +1,7 @@
-﻿using BHHC.Database;
+﻿using BHHC.Services.Interfaces;
+using BHHC.Services.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BHHC.Controllers
 {
@@ -11,15 +9,18 @@ namespace BHHC.Controllers
     [Route("api/candidates")]
     public class CandidatesController
     {
-        public CandidatesController()
-        {
+        private readonly ICandidateService _candidateService;
 
+        public CandidatesController(ICandidateService candidateService)
+        {
+            _candidateService = candidateService;
         }
 
         [HttpGet("")]
         public JsonResult GetCandidates()
         {
-            throw new NotImplementedException();
+            List<CandidateDto> candidateDtos = _candidateService.GetCandidates();
+            return new JsonResult(candidateDtos) { StatusCode = 200 };
         }
     }
 }

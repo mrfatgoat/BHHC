@@ -1,4 +1,6 @@
 using BHHC.Database;
+using BHHC.Services;
+using BHHC.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +38,10 @@ namespace BHHC
             services
                 .AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
+
+            // Scoped services for interacting with our data model.
+            services.AddScoped<ICandidateService, CandidateService>();
+            services.AddScoped<IFantasticReasonService, FantasticReasonService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger,
