@@ -35,6 +35,7 @@ namespace BHHC.Services
 
         public List<FantasticReasonDto> GetReasonsByCandidateId(int candidateId)
         {
+            // Select the reasons by navigating through the candidate record
             List<FantasticReasonDto> reasons = _db.Candidates
                 .Where(c => c.Id == candidateId)
                 .SelectMany(c => c.FantasticReasons)
@@ -44,6 +45,11 @@ namespace BHHC.Services
             return reasons;
         }
 
+        /// <summary>
+        /// Maps a databsae entity to a DTO
+        /// </summary>
+        /// <param name="fr"></param>
+        /// <returns></returns>
         public FantasticReasonDto CreateDto(FantasticReason fr)
         {
             return new FantasticReasonDto()
