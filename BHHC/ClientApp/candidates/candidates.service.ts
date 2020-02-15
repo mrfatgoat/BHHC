@@ -1,4 +1,4 @@
-﻿import { ICandidateDto } from "./CandidateDto";
+﻿import { ICandidateDto } from "./ICandidateDto";
 import { ICandidatesClient } from "./candidates.client";
 
 export interface ICandidateService {

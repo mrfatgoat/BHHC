@@ -1,6 +1,6 @@
 ﻿import "angular";
 import { ICandidateService } from "./candidates.service";
-import { ICandidateDto } from "./CandidateDto";
+import { ICandidateDto } from "./ICandidateDto";
 
 export class CandidatesListController implements ng.IController {
 

@@ -1,4 +1,4 @@
-﻿import { ICandidateDto } from "./CandidateDto";
+﻿import { ICandidateDto } from "./ICandidateDto";
 
 export interface ICandidatesClient {
     getCandidates(): ng.IHttpPromise<ICandidateDto[]>;

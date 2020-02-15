@@ -1,0 +1,7 @@
+﻿<h1>Candidates List</h1>
+
+<ul>
+    <li ng-repeat="candidate in ctrl.candidates">
+        <a ui-sref="candidateReasons({candidateId: candidate.id})">{{candidate.firstName}} {{candidate.lastName}}</a>
+    </li>
+</ul>

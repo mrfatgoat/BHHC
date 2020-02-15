@@ -2,5 +2,5 @@
 
 angular.module("app.templates", []);
 
-import "./candidates/_list.html";
-import "./reasons/_list.html";
+import "./candidates/_candidateList.html";
+import "./reasons/_reasonList.html";
