@@ -1,14 +1,14 @@
 ﻿import { ICandidateDto } from "./ICandidateDto";
 
-export interface ICandidatesClient {
+export interface ICandidateClient {
     getCandidates(): ng.IHttpPromise<ICandidateDto[]>;
 }
 
 export function Create($http: ng.IHttpService) {
-    return new CandidatesClient($http);
+    return new CandidateClient($http);
 }
 
-class CandidatesClient implements ICandidatesClient {
+class CandidateClient implements ICandidateClient {
 
     constructor(private $http: ng.IHttpService) {
 

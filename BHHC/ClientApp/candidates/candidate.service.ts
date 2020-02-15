@@ -1,17 +1,17 @@
 ﻿import { ICandidateDto } from "./ICandidateDto";
-import { ICandidatesClient } from "./candidates.client";
+import { ICandidateClient } from "./candidate.client";
 
 export interface ICandidateService {
     getCandidates(): ng.IPromise<ICandidateDto[]>;
 }
 
-export function Create(candidatesClient: ICandidatesClient): ICandidateService {
+export function Create(candidatesClient: ICandidateClient): ICandidateService {
     return new CandidateService(candidatesClient);
 }
 
 class CandidateService implements ICandidateService {
 
-    constructor(private candidatesClient: ICandidatesClient) {
+    constructor(private candidatesClient: ICandidateClient) {
 
     }
 
