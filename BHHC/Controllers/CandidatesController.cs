@@ -22,5 +22,21 @@ namespace BHHC.Controllers
             List<CandidateDto> candidateDtos = _candidateService.GetCandidates();
             return new JsonResult(candidateDtos) { StatusCode = 200 };
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetCandidate(int id)
+        {
+            CandidateDto candidateDto = _candidateService.GetCandidate(id);
+
+            if (candidateDto == null)
+            {
+                // No resource by that id, so 404
+                return new StatusCodeResult(404);
+            }
+            else
+            {
+                return new JsonResult(candidateDto) { StatusCode = 200 };
+            }
+        }
     }
 }

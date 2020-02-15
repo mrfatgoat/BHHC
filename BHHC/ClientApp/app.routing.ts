@@ -14,18 +14,23 @@
                 url: "/candidates",
                 views: {
                     main: {
-                        templateUrl: "candidates/_list.html",
-                        controller: "candidatesListController",
+                        templateUrl: "candidates/_candidateList.html",
+                        controller: "candidateListController",
                         controllerAs: "ctrl"
                     }
                 }
             })
             .state("candidateReasons", {
-                url: "candidates/:candidateId/reasons",
+                url: "/candidates/:candidateId/reasons",
+                params: {
+                    candidate: {
+                        value: null
+                    }
+                },
                 views: {
                     main: {
-                        templateUrl: "reasons/_list.html",
-                        controller: "reasonsListController",
+                        templateUrl: "reasons/_reasonList.html",
+                        controller: "reasonListController",
                         controllerAs: "ctrl"
                     }
                 }

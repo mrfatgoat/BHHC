@@ -1,14 +1,11 @@
-﻿using BHHC.Database;
-using BHHC.Services.Models;
-using System;
+﻿using BHHC.Services.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BHHC.Services.Interfaces
 {
     public interface ICandidateService
     {
         List<CandidateDto> GetCandidates();
+        CandidateDto GetCandidate(int id);
     }
 }

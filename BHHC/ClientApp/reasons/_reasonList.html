@@ -1,1 +1,5 @@
-﻿<h1>Reasons List</h1>
+﻿<h1>{{ctrl.candidate.firstName}} {{ctrl.candidate.lastName}}</h1>
+<a ui-sref="candidates">Back to Candidates</a>
+<ul>
+    <li ng-repeat="r in ctrl.reasons">{{r.reason}}</li>
+</ul>
