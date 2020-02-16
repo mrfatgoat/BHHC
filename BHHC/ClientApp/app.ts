@@ -3,16 +3,21 @@ import * as angular from "angular";
 import "@uirouter/angularjs";
 
 import "./app.templates";
+import "./app.css";
 
 import { RouterConfig } from "./app.routing";
 import { CandidateListController } from "./candidates/candidate.list.controller"
 import * as CandidateService from "./candidates/candidate.service";
 import * as CandidateClient from "./candidates/candidate.client";
+import * as CandidateCard from "./candidates/candidateCard.component";
 import { ReasonListController } from "./reasons/reason.list";
 import * as ReasonService from "./reasons/reason.service";
 import * as ReasonClient from "./reasons/reason.client";
 
-angular.module("ClientApp", ["app.templates", "ui.router"])
+// DEVNOTE: Things to add
+//          1. Internationalization/Localization config
+
+angular.module("ClientApp", ["ClientApp.Templates", "ui.router"])
 
     .config(["$stateProvider", "$urlRouterProvider", ($stateProvider, $urlRouterProvider) =>
         new RouterConfig($stateProvider, $urlRouterProvider)])
@@ -20,10 +25,12 @@ angular.module("ClientApp", ["app.templates", "ui.router"])
     // Candidate services
     .controller("candidateListController", [
         "candidateService",
-        (candidateService) => new CandidateListController(candidateService)])
+        "$state",
+        (candidateService, $state) => new CandidateListController(candidateService, $state)])
 
     .service("candidateService", ["candidateClient", (candidatesClient) => CandidateService.create(candidatesClient)])
     .service("candidateClient", ["$http", ($http) => CandidateClient.create($http)])
+    .component("candidateCard", CandidateCard.getComponentDefinition())
 
 
     // Reason services

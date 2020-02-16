@@ -47,6 +47,11 @@ namespace BHHC
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger,
             AppDbContext dbContext)
         {
+            // DEVNOTE: Things to add
+            //          1. Authentication
+            //          2. AuthZ services
+            //          3. Auth policies and auth filter enforcement by default
+            
             logger.LogInformation("Configuring request pipeline.");
 
             // Run database migrations to ensure up-to-date schema.

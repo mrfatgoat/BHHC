@@ -13,7 +13,7 @@ namespace BHHC.Controllers
         {
             var vm = new IndexViewModel()
             {
-                HomeViewProperty = "Home property value",
+                HomeViewProperty = ".NET Core MVC + AngularJS SPA by DJ Hubka",
                 PageTitle = "DJ Hubka's Simple Sample - SPA"
             };
 

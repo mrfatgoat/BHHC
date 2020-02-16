@@ -24,6 +24,8 @@
     "vinyl-source-stream": "2.0.0",
     "vinyl-buffer": "1.0.1",
     "gulp-sourcemaps": "2.6.5",
-    "ngify": "1.6.2"
+    "ngify": "1.6.2",
+    "bootstrap": "4.4.1",
+    "browserify-css": "0.15.0"
   }
 }

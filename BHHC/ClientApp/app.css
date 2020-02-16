@@ -1,0 +1,7 @@
+﻿@import url("../node_modules/bootstrap/dist/css/bootstrap.css");
+
+/* Candidate styles */
+@import url("candidates/candidate.css");
+
+/* Reason styles */
+@import url("reasons/reason.css");

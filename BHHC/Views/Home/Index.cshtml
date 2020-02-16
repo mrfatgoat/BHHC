@@ -4,14 +4,13 @@
     Layout = "_Layout";
 }
 
-@section Scripts{ 
-    <!-- Include our front end app, cache busted, of course! -->
-    <script type="text/javascript" src="~/dist/app.js" asp-append-version="true"></script>
+@section Scripts {
+    @* Include our front-end app, cache busted, of course! *@
+    <script type="text/javascript" src="~/dist/clientApp.js" asp-append-version="true"></script>
 }
 
-<h1>@Model.HomeViewProperty</h1>
-
-<div ui-view="main">
-
+<div ng-app="ClientApp">
+    <h1>@Model.HomeViewProperty</h1>
+    <div ui-view="main">
+    </div>
 </div>
-

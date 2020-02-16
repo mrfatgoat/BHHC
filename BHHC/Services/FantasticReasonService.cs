@@ -52,6 +52,11 @@ namespace BHHC.Services
         /// <returns></returns>
         public FantasticReasonDto CreateDto(FantasticReason fr)
         {
+            if (fr == null)
+            {
+                return null;
+            }
+
             return new FantasticReasonDto()
             {
                 Id = fr.Id,
