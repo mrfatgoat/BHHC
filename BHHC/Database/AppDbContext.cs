@@ -38,6 +38,10 @@ namespace BHHC.Database
                 .HasMaxLength(50)
                 .IsRequired();
 
+            entity.Property(c => c.Blurb)
+                .HasMaxLength(500)
+                .IsRequired();
+
             // 1-to-many relationship
             entity.HasMany(c => c.FantasticReasons)
                 .WithOne(fr => fr.Candidate)
@@ -77,7 +81,8 @@ namespace BHHC.Database
                 {
                     Id = djCandidateId,
                     FirstName = "DJ",
-                    LastName = "Hubka"
+                    LastName = "Hubka",
+                    Blurb = "DJ is a CSUS Computer Science graduate with 9 years of experience in C#, Javascript, and Relational Databases."
                 });
 
             modelBuilder.Entity<FantasticReason>().HasData(

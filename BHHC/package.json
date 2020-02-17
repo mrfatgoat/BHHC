@@ -26,6 +26,7 @@
     "gulp-sourcemaps": "2.6.5",
     "ngify": "1.6.2",
     "bootstrap": "4.4.1",
-    "browserify-css": "0.15.0"
+    "browserify-css": "0.15.0",
+    "popper.js": "1.16.1"
   }
 }

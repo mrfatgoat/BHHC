@@ -1,5 +1,22 @@
-﻿<h1>{{ctrl.candidate.firstName}} {{ctrl.candidate.lastName}}</h1>
-<a ui-sref="candidates">Back to Candidates</a>
-<ul>
-    <li ng-repeat="r in ctrl.reasons">{{r.reason}}</li>
-</ul>
+﻿<div id="candidateReasons" class="container-fluid">
+    <h2><a ui-sref="candidates">Candidates</a> > {{ctrl.candidate.firstName}} {{ctrl.candidate.lastName}}</h2>
+
+    <div id="reasonAccordion">
+        <div ng-repeat="r in ctrl.reasons" class="card">
+            <div class="card-header" id="reason-header-{{r.id}}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#reason-content-{{r.id}}" aria-expanded="{{$first}}" aria-controls="reason-content-{{r.id}}">
+                        TODO: Add short reason!
+                    </button>
+                </h5>
+            </div>
+
+            <div id="reason-content-{{r.id}}" class="collapse" ng-class="{show: $first}" aria-labelledby="reason-header-{{r.id}}" data-parent="#reasonAccordion">
+                <div class="card-body">
+                    {{r.reason}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

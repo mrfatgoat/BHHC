@@ -41,7 +41,7 @@ namespace BHHC.Services
                 .Where(c => c.Id == id)
                 .Select(this.CreateDto)
                 .SingleOrDefault();
-            
+
             return candidateDto;
         }
 
@@ -61,7 +61,8 @@ namespace BHHC.Services
             {
                 Id = c.Id,
                 FirstName = c.FirstName,
-                LastName = c.LastName
+                LastName = c.LastName,
+                Blurb = c.Blurb
             };
         }
     }
