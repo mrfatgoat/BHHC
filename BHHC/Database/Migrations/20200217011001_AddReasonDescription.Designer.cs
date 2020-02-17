@@ -3,14 +3,16 @@ using BHHC.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BHHC.Database.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200217011001_AddReasonDescription")]
+    partial class AddReasonDescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,27 +91,27 @@ namespace BHHC.Database.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 4,
+                            Id = 1,
                             CandidateId = 1,
-                            Description = "I've spent most of my career as a full-stack dev using AngularJS and C#. Most recently I have held a primarily back-end role and since then I have had a strong desire to learn more modern front-end web technologies. While my expertise today is in AngularJS, I have exposure to both React and Angular 7+ and a strong desire to work with a team to deepen my knowledge.",
-                            DisplayOrder = 3,
-                            Reason = "Desire to return to a full-stack development position"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CandidateId = 1,
-                            Description = "I have used .NET Core since before version 1.0 and each iteration has been a joy to code with. I am excited to bring my experience to the table and offer ideas on how best to leverage .NET Core as BHHC moves toward a microservice architecture.",
-                            DisplayOrder = 2,
-                            Reason = "Eager to continue working with .NET Core"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CandidateId = 1,
-                            Description = "In my experience, the best and most productive teams are filled with people who are always ready to learn and improve. There's no room for ego when it comes to finding the best solution to a problem, and I look forward to working with people who are ready to learn, teach, and grow together. From the interactions I've had with BHHC so far, I feel that's exactly the culture I'd find and would enjoy being part of.",
+                            Description = "",
                             DisplayOrder = 1,
-                            Reason = "Excited to be a part of a collaborative, cohesive, and open-minded team"
+                            Reason = "Reason 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CandidateId = 1,
+                            Description = "",
+                            DisplayOrder = 2,
+                            Reason = "Reason 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CandidateId = 1,
+                            Description = "",
+                            DisplayOrder = 3,
+                            Reason = "Reason 3"
                         });
                 });
 

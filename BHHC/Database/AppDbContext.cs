@@ -62,6 +62,10 @@ namespace BHHC.Database
                 .IsRequired()
                 .HasMaxLength(255);
 
+            entity.Property(fr => fr.Description)
+                .IsRequired()
+                .HasMaxLength(1000);
+
             // Unique composite key (don't allow the a duplicate display order value for a single candidate)
             entity
                 .HasIndex(fr => new
@@ -88,24 +92,32 @@ namespace BHHC.Database
             modelBuilder.Entity<FantasticReason>().HasData(
                 new FantasticReason()
                 {
-                    Id = 1,
-                    CandidateId = djCandidateId,
-                    DisplayOrder = 1,
-                    Reason = "Reason 1"
-                },
-                new FantasticReason()
-                {
-                    Id = 2,
-                    CandidateId = djCandidateId,
-                    DisplayOrder = 2,
-                    Reason = "Reason 2"
-                },
-                new FantasticReason()
-                {
-                    Id = 3,
+                    Id = 4,
                     CandidateId = djCandidateId,
                     DisplayOrder = 3,
-                    Reason = "Reason 3"
+                    Reason = "Desire to return to a full-stack development position",
+                    Description = "I've spent most of my career as a full-stack dev using AngularJS and C#." +
+                        " Most recently I have held a primarily back-end role and since then I have had a strong desire to learn more modern front-end web technologies." +
+                        " While my expertise today is in AngularJS, I have exposure to both React and Angular 7+ and a strong desire to work with a team to deepen my knowledge."
+                },
+                new FantasticReason()
+                {
+                    Id = 5,
+                    CandidateId = djCandidateId,
+                    DisplayOrder = 2,
+                    Reason = "Eager to continue working with .NET Core",
+                    Description = "I have used .NET Core since before version 1.0 and each iteration has been a joy to code with." +
+                        " I am excited to bring my experience to the table and offer ideas on how best to leverage .NET Core as BHHC moves toward a microservice architecture."
+                },
+                new FantasticReason()
+                {
+                    Id = 6,
+                    CandidateId = djCandidateId,
+                    DisplayOrder = 1,
+                    Reason = "Excited to be a part of a collaborative, cohesive, and open-minded team",
+                    Description = "In my experience, the best and most productive teams are filled with people who are always ready to learn and improve." +
+                        " There's no room for ego when it comes to finding the best solution to a problem, and I look forward to working with people who are ready to learn, teach, and grow together." +
+                        " From the interactions I've had with BHHC so far, I feel that's exactly the culture I'd find and would enjoy being part of."
                 });
         }
     }

@@ -3,4 +3,5 @@
     candidateId: number;
     displayOrder: number;
     reason: string;
+    description: string;
 }

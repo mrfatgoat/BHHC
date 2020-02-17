@@ -62,7 +62,8 @@ namespace BHHC.Services
                 Id = fr.Id,
                 CandidateId = fr.CandidateId,
                 DisplayOrder = fr.DisplayOrder,
-                Reason = fr.Reason
+                Reason = fr.Reason,
+                Description = fr.Description
             };
         }
     }
