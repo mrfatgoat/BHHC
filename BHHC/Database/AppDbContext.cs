@@ -106,7 +106,7 @@ namespace BHHC.Database
                     CandidateId = djCandidateId,
                     DisplayOrder = 2,
                     Reason = "Eager to continue working with .NET Core",
-                    Description = "I have used .NET Core since before version 1.0 and each iteration has been a joy to code with." +
+                    Description = "I have used .NET Core since before version 1.0 and each iteration has been a joy to learn and code." +
                         " I am excited to bring my experience to the table and offer ideas on how best to leverage .NET Core as BHHC moves toward a microservice architecture."
                 },
                 new FantasticReason()
@@ -117,7 +117,7 @@ namespace BHHC.Database
                     Reason = "Excited to be a part of a collaborative, cohesive, and open-minded team",
                     Description = "In my experience, the best and most productive teams are filled with people who are always ready to learn and improve." +
                         " There's no room for ego when it comes to finding the best solution to a problem, and I look forward to working with people who are ready to learn, teach, and grow together." +
-                        " From the interactions I've had with BHHC so far, I feel that's exactly the culture I'd find and would enjoy being part of."
+                        " From the interactions I've had with BHHC so far, I feel that's exactly the culture I'd find."
                 });
         }
     }
