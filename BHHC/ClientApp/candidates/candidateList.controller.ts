@@ -16,7 +16,7 @@ export class CandidateListController implements ng.IController {
     }
 
     showCandidateReasons(candidate: ICandidateDto) {
-        // candidateReasons({candidateId: c.id, candidate: c})
+        // Change router state to view candidate reasons
         this.$state.go("candidateReasons", {
             candidateId: candidate.id,
             candidate: candidate

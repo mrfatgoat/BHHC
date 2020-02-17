@@ -5,7 +5,6 @@
         $urlRouterProvider: ng.ui.IUrlRouterProvider) {
 
         // Default route
-
         $urlRouterProvider.otherwise("/candidates");
 
         // SPA router states

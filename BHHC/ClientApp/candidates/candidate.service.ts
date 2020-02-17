@@ -12,9 +12,7 @@ export function create(candidateClient: ICandidateClient): ICandidateService {
 
 class CandidateService implements ICandidateService {
 
-    constructor(private candidateClient: ICandidateClient) {
-
-    }
+    constructor(private candidateClient: ICandidateClient) { }
 
     getCandidates(): ng.IPromise<ICandidateDto[]> {
         return this.candidateClient.getCandidates()

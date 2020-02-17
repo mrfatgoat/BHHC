@@ -11,9 +11,7 @@ export function create($http: ng.IHttpService) {
 
 class CandidateClient implements ICandidateClient {
 
-    constructor(private $http: ng.IHttpService) {
-
-    }
+    constructor(private $http: ng.IHttpService) { }
 
     getCandidates(): ng.IHttpPromise<ICandidateDto[]> {
         const route = "api/candidates";

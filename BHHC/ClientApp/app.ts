@@ -7,11 +7,11 @@ import "./app.templates";
 import "./app.css";
 
 import { RouterConfig } from "./app.routing";
-import { CandidateListController } from "./candidates/candidate.list.controller"
+import { CandidateListController } from "./candidates/candidateList.controller"
 import * as CandidateService from "./candidates/candidate.service";
 import * as CandidateClient from "./candidates/candidate.client";
 import * as CandidateCard from "./candidates/candidateCard.component";
-import { ReasonListController } from "./reasons/reason.list";
+import { ReasonListController } from "./reasons/reasonList.controller";
 import * as ReasonService from "./reasons/reason.service";
 import * as ReasonClient from "./reasons/reason.client";
 

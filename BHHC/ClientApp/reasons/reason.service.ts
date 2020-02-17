@@ -11,9 +11,7 @@ export function create(reasonClient: IReasonClient): IReasonService {
 
 class ReasonService implements IReasonService {
     
-    constructor(private reasonClient: IReasonClient) {
-
-    }
+    constructor(private reasonClient: IReasonClient) { }
 
     getCandidateReasons(candidateId: number): ng.IPromise<IReasonDto[]> {
         return this.reasonClient.getCandidateReasons(candidateId)
