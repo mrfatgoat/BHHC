@@ -10,7 +10,7 @@
   "author": "DJ Hubka",
   "license": "MIT",
   "dependencies": {
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "angular": "1.7.9"
   },
   "devDependencies": {
