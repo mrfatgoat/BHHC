@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "jquery": "3.4.1",
-    "angular": "1.7.9"
+    "angular": "1.8.0"
   },
   "devDependencies": {
     "@types/angular": "1.6.57",
